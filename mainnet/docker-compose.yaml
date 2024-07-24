@@ -1,8 +1,7 @@
-#base unmodified docker-compose.yaml
 services:
   worker:
     #image: lagrangelabs/worker:holesky
-    image: lagrangelabs/worker:${NETWORK}
+    image: lagrangelabs/worker:mainnet
     container_name: worker
     environment:
     ###################################
@@ -10,10 +9,10 @@ services:
     # You can find the list of the public RPCs for holesky here https://chainlist.org/chain/17000
     - RPC_URL=https://eth.llamarpc.com
     - AVS__ETH_PWD=${AVS__ETH_PWD}
-    - AVS__ETH_KEYSTORE=/config/priv_key.json
-    - NETWORK=${NETWORK}
+    - AVS__ETH_KEYSTORE=/priv_key.json
+    - NETWORK=mainnet
     ###################################
-    - AVS__LAGR_KEYSTORE=/config/lagr_keystore.json
+    - AVS__LAGR_KEYSTORE=/lagr_keystore.json
     - AVS__LAGR_PWD=${AVS__LAGR_PWD}
     - RUST_LOG=info,worker=debug
     - PUBLIC_PARAMS__SKIP_STORE=false
@@ -31,4 +30,4 @@ services:
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 60 lagrangelabs/worker:${NETWORK}
+    command: --interval 60 lagrangelabs/worker:mainnet

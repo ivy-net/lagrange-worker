@@ -1,0 +1,13 @@
+[worker]
+data_dir = "/tmp"
+instance_type = "small"
+
+[avs]
+# for testnet, use:
+gateway_url = "ws://gateway.test-distributed-query.test.distributed-query.io:80"
+issuer = "lagrange"
+#This is a display name for your worker. please change it.
+worker_id = "CHANGE_ME"
+
+[prometheus]
+port = 9090
