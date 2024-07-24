@@ -9,10 +9,10 @@ services:
     # You can find the list of the public RPCs for holesky here https://chainlist.org/chain/17000
     - RPC_URL=https://eth.llamarpc.com
     - AVS__ETH_PWD=${AVS__ETH_PWD}
-    - AVS__ETH_KEYSTORE=/priv_key.json
+    - AVS__ETH_KEYSTORE=/config/priv_key.json
     - NETWORK=mainnet
     ###################################
-    - AVS__LAGR_KEYSTORE=/lagr_keystore.json
+    - AVS__LAGR_KEYSTORE=/config/lagr_keystore.json
     - AVS__LAGR_PWD=${AVS__LAGR_PWD}
     - RUST_LOG=info,worker=debug
     - PUBLIC_PARAMS__SKIP_STORE=false
